@@ -1,4 +1,4 @@
-import Momo from '../models/cashModel.js';
+import Momo from '../models/momoModel.js';
 
 const updateMomo = async (req, res) => {
     try {
@@ -36,7 +36,7 @@ const updateMomo = async (req, res) => {
             status: "success",
             data: {
                 message: "momo Account updated successfully",
-                budget: budget
+                momo: momo
             }
         });
 

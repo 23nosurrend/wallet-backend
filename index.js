@@ -7,6 +7,7 @@ import user from './routes/userRoute.js'
 import budget from "./routes/budgetRoute.js"
 import bank from "./routes/bankRoute.js"
 import cash from "./routes/cashRoute.js"
+import momo from "./routes/momoRoute.js"
 
 
 dotenv.config();
@@ -20,7 +21,8 @@ app.use(bodyParser.urlencoded({ extended: true })); // THis will help us to acce
 app.use("/admin", user)
 app.use("/budget", budget)
 app.use("/bank", bank)
-app.use("/cash",bank)
+app.use("/cash", cash)
+app.use("/momo",momo)
 
 
 

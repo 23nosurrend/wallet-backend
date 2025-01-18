@@ -1,4 +1,4 @@
-import Cash from '../models/bankModel.js';
+import Cash from '../models/cashModel.js';
 
 const updateCash = async (req, res) => {
     try {
@@ -36,7 +36,7 @@ const updateCash = async (req, res) => {
             status: "success",
             data: {
                 message: "Cash Account updated successfully",
-                budget: budget
+                cash: cash
             }
         });
 

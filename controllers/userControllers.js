@@ -63,19 +63,19 @@ if (!Email || !Username || !Password) {
                 userEmail: savedUser.Email,
                 amount: 0
           });
-            console.log("Saved user budget:", userBudget);
+            console.log("Saved user budget:", userMomo);
             await userMomo.save();
              const userBank = new Bank({
                 userEmail: savedUser.Email,
                 amount: 0
           });
-            console.log("Saved user budget:", userBudget);
+            console.log("Saved user budget:", userBank);
             await userBank.save();
              const userCash = new Cash({
                 userEmail: savedUser.Email,
                 amount: 0
           });
-            console.log("Saved user budget:", userBudget);
+            console.log("Saved user budget:", userCash);
             await userCash.save();
             
            

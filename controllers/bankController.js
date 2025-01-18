@@ -14,7 +14,7 @@ const updateBank = async (req, res) => {
             });
         }
 
-        // Find and update budget
+        // Find and update bank
         console.log('user email :', req.user.Email)
         const bank= await Bank.findOneAndUpdate(
             { userEmail: req.user.Email },
@@ -36,7 +36,7 @@ const updateBank = async (req, res) => {
             status: "success",
             data: {
                 message: "Bank Account updated successfully",
-                budget: budget
+                bank: bank
             }
         });
 
