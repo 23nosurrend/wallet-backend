@@ -4,6 +4,12 @@ import bodyParser from "body-parser";
 import cors from "cors"
 import dotenv from "dotenv";
 import user from './routes/userRoute.js'
+import budget from "./routes/budgetRoute.js"
+import bank from "./routes/bankRoute.js"
+import cash from "./routes/cashRoute.js"
+import momo from "./routes/momoRoute.js"
+import transaction from "./routes/transactionRoute.js"
+
 
 dotenv.config();
 const app = express();
@@ -13,7 +19,12 @@ app.use(express.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true })); // THis will help us to access data from form
 
- app.use("/admin",user)
+app.use("/admin", user)
+app.use("/budget", budget)
+app.use("/bank", bank)
+app.use("/cash", cash)
+app.use("/momo", momo)
+app.use("/transaction",transaction)
 
 
 

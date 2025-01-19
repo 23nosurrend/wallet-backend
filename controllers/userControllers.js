@@ -2,7 +2,10 @@ import Users from "../models/userModel.js"
 import bcrypt from "bcrypt"
 import jwt from "jsonwebtoken"
 import dotenv from "dotenv"
-
+import Budget from "../models/userBudgetModel.js"
+import Momo from '../models/momoModel.js'
+import Bank from '../models/bankModel.js'
+import Cash from '../models/cashModel.js'
 
 
 
@@ -47,16 +50,41 @@ if (!Email || !Username || !Password) {
                 Username: data.Username,
                 Password: data.Password
             });
-           await userInfo.save();
+            await userInfo.save();
+            const savedUser = await userInfo.save();
            
-          return res.status(200).json({
-            status:"success",
-            data:{
-                 message:"User created successfully",
-            }
+          const userBudget = new Budget({
+                userEmail: savedUser.Email,
+                amount: 0
+          });
+            console.log("Saved user budget:", userBudget);
+            await userBudget.save();
+            const userMomo = new Momo({
+                userEmail: savedUser.Email,
+                amount: 0
+          });
+            console.log("Saved user budget:", userMomo);
+            await userMomo.save();
+             const userBank = new Bank({
+                userEmail: savedUser.Email,
+                amount: 0
+          });
+            console.log("Saved user budget:", userBank);
+            await userBank.save();
+             const userCash = new Cash({
+                userEmail: savedUser.Email,
+                amount: 0
+          });
+            console.log("Saved user budget:", userCash);
+            await userCash.save();
+            
            
-           
-          })
+            return res.status(200).json({
+                status: "success",
+                data: {
+                    message: "User created successfully with default budget",
+                }
+            })
            
 
     
