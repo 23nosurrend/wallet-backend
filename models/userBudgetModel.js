@@ -1,9 +1,15 @@
 import mongoose from "mongoose"
 
 const budgetSchema = new mongoose.Schema({
+  userId: { 
+    type: mongoose.Schema.Types.ObjectId, 
+    ref: 'users', 
+    required: true,
+    unique: true,
+  },
   userEmail: {
         type: String,
-    required: true   // Ensures one budget per user
+    required: true   
   },
   amount: {
     type: Number,
