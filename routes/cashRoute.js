@@ -1,9 +1,10 @@
 import express from 'express';
 import authMiddleware from '../middleware/authMiddleware.js';
-import  Cash from '../controllers/cashController.js';
+import { updateCash, readCash } from '../controllers/cashController.js';
 
 const router = express.Router();
 
-router.patch('/update', authMiddleware, Cash);
+router.patch('/update', authMiddleware, updateCash);
+router.get('/read',authMiddleware,readCash)
 
 export default router;

@@ -50,4 +50,41 @@ const updateBudget = async (req, res) => {
         });
     }
 };
-export default updateBudget
+const readBudget = async (req, res) => {
+  try {
+   
+    const userEmail = req.user.Email;
+    console.log('Fetching budget for user:', userEmail);
+
+   
+    const budget = await Budget.findOne({ userEmail });
+
+  
+    if (!budget) {
+      return res.status(404).json({
+        status: "fail",
+        data: {
+          message: "Budget  Account not found"
+        }
+      });
+    }
+
+  
+    return res.status(200).json({
+      status: "success",
+      data: {
+        budget
+      }
+    });
+
+  } catch (error) {
+    console.error("Error fetching budget:", error);
+    return res.status(500).json({
+      status: "error",
+      data: {
+        message: "Internal server error"
+      }
+    });
+  }
+};
+export { updateBudget ,readBudget}

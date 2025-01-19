@@ -50,4 +50,42 @@ const updateCash = async (req, res) => {
         });
     }
 };
-export default updateCash;
+
+const readCash = async (req, res) => {
+  try {
+   
+    const userEmail = req.user.Email;
+    console.log('Fetching cash for user:', userEmail);
+
+   
+    const cash = await Cash.findOne({ userEmail });
+
+  
+    if (!cash) {
+      return res.status(404).json({
+        status: "fail",
+        data: {
+          message: "Cash Account not found"
+        }
+      });
+    }
+
+  
+    return res.status(200).json({
+      status: "success",
+      data: {
+        cash
+      }
+    });
+
+  } catch (error) {
+    console.error("Error fetching cash:", error);
+    return res.status(500).json({
+      status: "error",
+      data: {
+        message: "Internal server error"
+      }
+    });
+  }
+};
+export { updateCash,readCash };

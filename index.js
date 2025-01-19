@@ -8,6 +8,7 @@ import budget from "./routes/budgetRoute.js"
 import bank from "./routes/bankRoute.js"
 import cash from "./routes/cashRoute.js"
 import momo from "./routes/momoRoute.js"
+import transaction from "./routes/transactionRoute.js"
 
 
 dotenv.config();
@@ -22,7 +23,8 @@ app.use("/admin", user)
 app.use("/budget", budget)
 app.use("/bank", bank)
 app.use("/cash", cash)
-app.use("/momo",momo)
+app.use("/momo", momo)
+app.use("/transaction",transaction)
 
 
 

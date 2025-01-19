@@ -3,7 +3,7 @@ import User from '../models/userModel.js';
 import dotenv from "dotenv"
 
 dotenv.config()
-const secretKey='@@Key'
+
 
 const auth = async (req, res, next) => {
   try {
