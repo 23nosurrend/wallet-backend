@@ -52,8 +52,9 @@ if (!Email || !Username || !Password) {
             });
             await userInfo.save();
             const savedUser = await userInfo.save();
-           
-          const userBudget = new Budget({
+    
+            const userBudget = new Budget({
+                userId:savedUser.id,
                 userEmail: savedUser.Email,
                 amount: 0
           });
